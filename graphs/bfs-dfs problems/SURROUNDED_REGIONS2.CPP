@@ -14,7 +14,7 @@ void dfs(int i , int j , vector<vector<char>>& board , vector<vector<int>> &visi
     board[i][j] = '#';
 
     //up
-    if(i-1 >= 0 && board[i-1][j] == '0' && visited[i-1][j] == -1){
+    if(i-1 >= 0 && board[i-1][j] == 'O' && visited[i-1][j] == -1){
         visited[i-1][j] = 1;
         
         dfs(i-1,j,board,visited);
@@ -22,14 +22,14 @@ void dfs(int i , int j , vector<vector<char>>& board , vector<vector<int>> &visi
     }     
         
     // down
-    if(i+1 < n && board[i+1][j] == '0' && visited[i+1][j] == -1){
+    if(i+1 < n && board[i+1][j] == 'O' && visited[i+1][j] == -1){
         visited[i+1][j] = 1;
 
         dfs(i+1,j,board,visited);
     }
         
     // right
-    if(j+1 < m && board[i][j+1] == '0' && visited[i][j+1] == -1){
+    if(j+1 < m && board[i][j+1] == 'O' && visited[i][j+1] == -1){
         visited[i][j+1] = 1;
 
         dfs(i,j+1,board,visited);
@@ -37,7 +37,7 @@ void dfs(int i , int j , vector<vector<char>>& board , vector<vector<int>> &visi
     }
 
     // left
-    if(j-1 >= 0 && board[i][j-1] == '0' && visited[i][j-1] == -1){
+    if(j-1 >= 0 && board[i][j-1] == 'O' && visited[i][j-1] == -1){
         visited[i][j-1] = 1;
 
         dfs(i,j-1,board,visited);
