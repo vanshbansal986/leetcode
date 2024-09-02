@@ -5,14 +5,14 @@ using namespace std;
 
 
 
-bool isCycle(int V, vector<int> adj[]) {
-    int start = 0;
+bool helper(int start, vector<int> adj[] , vector<int> &visited ) {
     
+        
     queue<pair<int,int>> pending;
-    vector<int> visited(V,0);
+    
 
-    pending.push(make_pair(0,-1));
-    visited[0] = 1;
+    pending.push(make_pair(start,-1));
+    visited[start] = 1;
 
     while(!pending.empty()){
         
@@ -38,6 +38,23 @@ bool isCycle(int V, vector<int> adj[]) {
 
         }
     }
+    
+    
+    for(int i=0; i<visited.size(); i++){
+        if(visited[i] == 0){
+            bool ans = helper(i,adj,visited);
+            if(ans == true){
+                return true;
+            }
+        }
+    }
+    
 
     return false;
+}
+
+bool isCycle(int V, vector<int> adj[]) {
+    vector<int> visited(V,0);
+    
+    return helper(0,adj,visited);
 }

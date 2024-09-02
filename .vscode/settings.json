@@ -4,6 +4,8 @@
         "unordered_map": "cpp",
         "stack": "cpp",
         "iosfwd": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "__locale": "cpp",
+        "map": "cpp"
     }
 }
